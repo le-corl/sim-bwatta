@@ -1,0 +1,29 @@
+{
+  "name": "sim-bwatta",
+  "version": "0.3.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "dev:web": "vite --mode web-pwa --base=/",
+    "test": "node --test tests/*.test.ts",
+    "build": "tsc -b && vite build && ait build",
+    "build:web": "tsc -b && vite build --mode web-pwa --base=/sim-bwatta/ --outDir dist-web",
+    "preview": "vite preview",
+    "preview:web": "vite preview --outDir dist-web --base=/sim-bwatta/",
+    "deploy": "ait deploy"
+  },
+  "dependencies": {
+    "@apps-in-toss/web-framework": "^3.1.1",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.5",
+    "@vitejs/plugin-react": "^5.1.4",
+    "typescript": "^5.9.3",
+    "vite": "^7.3.6",
+    "@apps-in-toss/devtools": "^3.1.1"
+  }
+}

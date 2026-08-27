@@ -1,0 +1,35 @@
+{
+  "id": "./",
+  "lang": "ko-KR",
+  "name": "심봤다",
+  "short_name": "심봤다",
+  "description": "두루마리 휴지를 풀며 작은 행동 미션을 끝내고 황당한 휴지심을 모으는 짧은 미니게임",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#f4efe6",
+  "theme_color": "#332b24",
+  "categories": ["games"],
+  "prefer_related_applications": false,
+  "icons": [
+    {
+      "src": "./icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "./icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
