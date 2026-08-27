@@ -28,6 +28,12 @@ function webPwaHeadPlugin(): Plugin {
           attrs: { name: 'application-name', content: '심봤다' },
           injectTo: 'head',
         },
+        {
+          tag: 'script',
+          attrs: { type: 'text/javascript' },
+          children: `if ('serviceWorker' in navigator) { navigator.serviceWorker.register('${base}sw.js', { scope: '${base}' }); }`,
+          injectTo: 'head-prepend',
+        },
       ];
     },
   };

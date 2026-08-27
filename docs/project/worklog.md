@@ -319,3 +319,6 @@ updated: 2026-08-28
 - 2026-08-28 / M7-1 / 문서 정책: `DEVELOPMENT.md`는 마일스톤 완료 시점에만 갱신한다. 계정·콘솔 식별자·신원 인증·출시 행정·로컬 환경·세션별 로그는 공개 저장소에 포함하지 않는다.
 - 2026-08-28 / M7-1 / Pages 상태 분리: 단일 공개 커밋 `ecf6706`의 원격 `main` 푸시는 성공했지만, 그 푸시가 실행한 `Deploy web PWA`는 build job이 17초에 실패해 deploy job이 건너뛰어졌다. 따라서 저장소 정리·푸시는 완료, GitHub Pages 공개는 미완료로 구분한다.
 - 2026-08-28 / M7-1 / 다음 확인: 저장소를 Public으로 전환하고 `Settings → Pages → Build and deployment → Source: GitHub Actions`를 설정한 뒤 실패 실행을 재시도한다. 이미 설정했다면 build job의 세 annotation 원문을 확인해 워크플로 원인을 별도로 진단한다.
+- 2026-08-28 / M7-1 / Pages 공개 완료: Source를 GitHub Actions로 전환한 뒤 실패 실행 `33102030328`을 전체 재실행했다. build 17초, deploy 9초로 모두 성공했고 `https://le-corl.github.io/sim-bwatta/`에서 메인·플레이 진입, manifest, `sw.js` 응답을 확인했다.
+- 2026-08-28 / M7-1 / PWABuilder 진단: 공개 URL과 manifest는 패키징 가능 판정을 받았지만 service worker는 미감지됐다. 현재 등록이 `window.load` 뒤 실행되는 구조이고 PWABuilder는 즉시 등록을 권장하므로, 웹 빌드에만 `<head>` 선등록을 주입하고 React 진입부의 지연 등록을 제거했다.
+- 2026-08-28 / M7-1 / 자동 검증: `. .\scripts\activate-dev.ps1; npm test; npm run build:web -- --outDir .local/verify-pages-sw`에서 테스트 43/43과 TypeScript·Vite 웹 빌드를 통과했다. 생성된 `index.html`의 첫 스크립트가 `/sim-bwatta/sw.js`를 scope `/sim-bwatta/`로 즉시 등록하는지 확인했다.
