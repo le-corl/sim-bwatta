@@ -3,7 +3,15 @@
 .agents/
 .codex/
 AGENTS.md
-docs/
+docs/*
+!docs/project/
+docs/project/*
+!docs/project/brief.md
+!docs/project/m7-release-checklist.md
+!docs/project/plan.md
+!docs/project/store-route-options.md
+!docs/project/tasks.md
+!docs/project/worklog.md
 template/
 scripts/activate-dev.ps1
 pnpm-workspace.yaml
