@@ -1,4 +1,4 @@
-const CACHE_NAME = 'sim-bwatta-pwa-v1';
+const CACHE_NAME = 'sim-bwatta-pwa-v2';
 
 function getBasePath() {
   return new URL(self.registration.scope).pathname;
@@ -44,10 +44,10 @@ self.addEventListener('fetch', (event) => {
       fetch(request)
         .then((response) => {
           const copy = response.clone();
-          void caches.open(CACHE_NAME).then((cache) => cache.put(getBasePath(), copy));
+          void caches.open(CACHE_NAME).then((cache) => cache.put(request, copy));
           return response;
         })
-        .catch(() => caches.match(getBasePath())),
+        .catch(async () => (await caches.match(request)) ?? caches.match(getBasePath())),
     );
     return;
   }

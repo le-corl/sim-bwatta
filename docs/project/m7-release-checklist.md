@@ -81,9 +81,12 @@ X 버튼의 라이브 확인을 제외한 이 항목을 모두 통과하면 M6-3
 - [x] `새 제품 → MSIX 또는 PWA 게임`에서 고객에게 표시할 Store 제품명 `심봤다`를 예약한다. 제품 개요에 `심봤다 / 게임 / 초안`과 `제품 ID 보기`가 표시되어 예약·게임 제품 생성을 확인했다.
 - [x] 동일 핵심 게임의 `web-pwa` 배포 대상을 만들고 로컬 빌드·화면·Toss 회귀를 검증한다.
 - [x] GitHub Pages workflow를 실행해 `web-pwa`를 HTTPS에 공개하고 URL을 확인한다. 공개 URL은 `https://le-corl.github.io/sim-bwatta/`이며 Actions 재실행의 build·deploy가 모두 성공했다.
-- [ ] PWABuilder 패키지, IARC 설문, 스토어 설명·이미지를 제출한다.
+- [x] PWABuilder에서 Windows Store 패키지 `1.0.1`을 생성하고 `.msixbundle`의 제품명·Package ID·Publisher ID·Publisher 표시명·한국어 리소스·공개 PWA URL을 검증한다.
+- [x] Apps in Toss판과 Microsoft Store/Web PWA판의 처리 차이를 구분한 개인정보 처리방침을 `https://le-corl.github.io/sim-bwatta/privacy.html`에 공개한다.
+- [ ] Partner Center에 `.msixbundle`을 업로드하고 IARC 설문, 스토어 설명·이미지를 제출한다.
 
-PWABuilder는 공개 URL과 manifest를 패키징 가능 상태로 판정했지만 `window.load` 뒤 등록하던 service worker를 감지하지 못했다. 웹 빌드의 `<head>`에서 즉시 등록하도록 보정했으며, 이 변경을 Pages에 반영한 뒤 재검사·Windows 패키지 생성을 계속한다.
+PWABuilder 재검사에서 manifest와 service worker의 패키징 필수 조건을 모두 통과했다. 웹 화면의 패키지 버튼이 반응하지 않아 동일한 Microsoft 공식 PWABuilder 패키징 API로 생성했으며, Store 업로드 대상은 Git 제외 로컬 경로의 `심봤다_1.0.1.0.msixbundle`이다. 앱 SemVer `0.3.1`과 Windows Store 패키지 버전 `1.0.1.0`은 각 플랫폼 규칙에 따라 별도로 관리한다.
+
 - [ ] 최대 3영업일 인증 결과를 확인하고 공개 URL을 확보한다.
 - [ ] 게임물관리위원회 자체등급분류 조회 반영을 확인한다.
 - [ ] Microsoft Store 공개 URL과 조회 정보를 Apps in Toss 콘솔에 입력한다.
@@ -126,7 +129,9 @@ Google 경로는 실제 12명·14일 블로커가 확인되어 후순위로 내�
 1. [완료] `새 제품 → MSIX 또는 PWA 게임`에서 `심봤다` 이름 예약
 2. [완료] `제품 ID 보기`의 패키지·Publisher·Store 식별자를 Git 제외 로컬 파일에 기록
 3. [완료] 동일 게임 `web-pwa` 제작·로컬 검증
-4. GitHub Pages HTTPS 공개와 URL 확인
-5. PWABuilder 패키지·IARC·스토어 정보 제출
-6. 앱인토스 채널톡에 Microsoft Store 공개 후 게임물관리위원회 조회 반영 전 처리 방법 문의
-7. 등급 증빙 확보 뒤 `0.3.1` 업로드·최종 실기기 회귀 및 앱인토스 검토 요청
+4. [완료] GitHub Pages HTTPS 공개와 URL 확인
+5. [완료] PWABuilder Windows Store 패키지 생성·식별자 검증
+6. [완료] 공통 개인정보 처리방침 작성·GitHub Pages 공개
+7. Partner Center 패키지 업로드·IARC·스토어 정보 제출
+8. 앱인토스 채널톡에 Microsoft Store 공개 후 게임물관리위원회 조회 반영 전 처리 방법 문의
+9. 등급 증빙 확보 뒤 `0.3.1` 업로드·최종 실기기 회귀 및 앱인토스 검토 요청
