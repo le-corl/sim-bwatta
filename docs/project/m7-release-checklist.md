@@ -83,7 +83,7 @@ X 버튼의 라이브 확인을 제외한 이 항목을 모두 통과하면 M6-3
 - [x] GitHub Pages workflow를 실행해 `web-pwa`를 HTTPS에 공개하고 URL을 확인한다. 공개 URL은 `https://le-corl.github.io/sim-bwatta/`이며 Actions 재실행의 build·deploy가 모두 성공했다.
 - [x] PWABuilder에서 Windows Store 패키지 `1.0.1`을 생성하고 `.msixbundle`의 제품명·Package ID·Publisher ID·Publisher 표시명·한국어 리소스·공개 PWA URL을 검증한다.
 - [x] Apps in Toss 플랫폼과 Microsoft Store/Web PWA 플랫폼의 처리 차이를 구분한 개인정보 처리방침을 `https://le-corl.github.io/sim-bwatta/privacy.html`에 공개한다.
-- [ ] Partner Center에 `.msixbundle`을 업로드하고 IARC 설문, 스토어 설명·이미지를 제출한다.
+- [x] Partner Center에 `.msixbundle`을 업로드하고 IARC 설문, 스토어 설명·이미지, 속성, 가격 및 가용성을 입력해 인증 제출한다. 현재 상태는 `인증 중`, 단계는 `사전 처리 중`이다.
 
 PWABuilder 재검사에서 manifest와 service worker의 패키징 필수 조건을 모두 통과했다. 웹 화면의 패키지 버튼이 반응하지 않아 동일한 Microsoft 공식 PWABuilder 패키징 API로 생성했으며, Store 업로드 대상은 Git 제외 로컬 경로의 `심봤다_1.0.1.0.msixbundle`이다. 앱 SemVer `0.3.1`과 Windows Store 패키지 버전 `1.0.1.0`은 각 플랫폼 규칙에 따라 별도로 관리한다.
 
@@ -132,6 +132,7 @@ Google 경로는 실제 12명·14일 블로커가 확인되어 후순위로 내�
 4. [완료] GitHub Pages HTTPS 공개와 URL 확인
 5. [완료] PWABuilder Windows Store 패키지 생성·식별자 검증
 6. [완료] 공통 개인정보 처리방침 작성·GitHub Pages 공개
-7. Partner Center 패키지 업로드·IARC·스토어 정보 제출
-8. 앱인토스 채널톡에 Microsoft Store 공개 후 게임물관리위원회 조회 반영 전 처리 방법 문의
-9. 등급 증빙 확보 뒤 `0.3.1` 업로드·최종 실기기 회귀 및 앱인토스 검토 요청
+7. [완료] Partner Center 패키지 업로드·IARC·스토어 정보 입력·인증 제출
+8. Microsoft 인증·게시 완료와 공개 URL 확인
+9. 앱인토스 채널톡에 Microsoft Store 공개 후 게임물관리위원회 조회 반영 전 처리 방법 문의
+10. 등급 증빙 확보 뒤 `0.3.1` 업로드·최종 실기기 회귀 및 앱인토스 검토 요청

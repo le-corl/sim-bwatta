@@ -1,6 +1,6 @@
 # 등급 증빙 스토어 경로 비교
 
-updated: 2026-08-28 / status: Microsoft Store PWA 최종 선택
+updated: 2026-08-28 / status: Microsoft Store PWA 인증 제출 완료·게시 대기
 
 ## 결론
 

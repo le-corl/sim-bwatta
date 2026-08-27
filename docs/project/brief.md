@@ -23,7 +23,7 @@ updated: 2026-08-28 / owner: Codex lead
 | 최종 번들 상태 | `0.2.1` 콘솔 업로드 완료 / `0.3.1`은 버전·사용자 식별키·브랜드 색상 보완 후 한 번만 최종 빌드 예정 |
 | 챌린지 출품 상태 | 신청폼 제출 완료 |
 | 1차 심사 지표 기간 | 2026-09-01~2026-09-27 |
-| 공개 상태 | 미공개. Google Play 개인 계정의 12명·14일 요건을 피해 Microsoft Store PWA 동일 게임 공개 경로로 확정 |
+| 공개 상태 | 미공개. Microsoft Store PWA 동일 게임 제출을 완료했고 현재 인증 사전 처리 중이다. 인증·게시 후 공개 URL을 등급 증빙으로 사용한다. |
 | 퍼블리셔 표시명 | 공개 기준 `double-B Std.`. Apps in Toss·Microsoft Store는 소문자 표기이며 Google Play의 `Double-B Std.` 정정은 출시 후로 보류 |
 
 ## 콘셉트

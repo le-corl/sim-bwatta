@@ -65,7 +65,7 @@ updated: 2026-08-28 / owner: Codex lead
 - 테스트 외주는 테스터 모집 부담만 줄이고 14일 연속 요건과 이후 심사를 줄이지 못하므로 최단 경로가 아니다. 사업자 등록 후 Google 조직 계정으로 전환하는 경로도 D-U-N-S 신규 발급이 최대 30일 걸릴 수 있어 긴급 우회로로 부적합하다.
 - Apps in Toss가 인정하는 Microsoft Store에 동일 게임 PWA를 공개하는 경로를 최종 선택했다. Microsoft는 개인 개발자 무료 가입, PWA 게임, IARC 등급 설문을 지원하며 Store 인증을 최대 3영업일로 안내한다.
 - 현재 React 앱은 핵심 루프를 그대로 재사용할 수 있다. Toss 전용 Storage·File·Share·Analytics·사용자 키를 플랫폼 어댑터로 분리하고 PWA·HTTPS 배포를 추가하는 범위라 Android/iOS 네이티브 포장보다 작다.
-- Microsoft 개인 개발자 등록 검증, `심봤다` 제품 예약과 식별자 확보를 완료했다. 동일 게임 `web-pwa`도 구현·로컬 검증했으며, 다음 외부 체크포인트는 GitHub Pages HTTPS 공개와 PWABuilder Store 패키지 생성이다. 상세 절차는 `store-route-options.md`를 따른다.
+- Microsoft 개인 개발자 등록 검증, `심봤다` 제품 예약·식별자 확보, 동일 게임 `web-pwa` 구현, GitHub Pages HTTPS 공개, PWABuilder Store 패키지 생성·검증과 Partner Center 인증 제출을 완료했다. 현재 외부 체크포인트는 Microsoft 인증·게시와 공개 URL 확보다. 상세 절차는 `store-route-options.md`를 따른다.
 - 웹 기반 동일 게임은 Partner Center의 `새 제품 → MSIX 또는 PWA 게임`으로 생성한다. `GDK game`은 새 PC 네이티브 게임용 경로이므로 선택하지 않는다.
 - 어느 경로도 8월 31일까지 끝나지 않으면 9월 1일 이후라도 즉시 공개한다. 공식 1차 지표 기간은 9월 27일까지이므로 공개 지연은 감점 위험이지 공식 자동 탈락 조건으로 명시되지는 않았다.
 
