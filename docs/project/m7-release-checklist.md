@@ -82,7 +82,7 @@ X 버튼의 라이브 확인을 제외한 이 항목을 모두 통과하면 M6-3
 - [x] 동일 핵심 게임의 `web-pwa` 배포 대상을 만들고 로컬 빌드·화면·Toss 회귀를 검증한다.
 - [x] GitHub Pages workflow를 실행해 `web-pwa`를 HTTPS에 공개하고 URL을 확인한다. 공개 URL은 `https://le-corl.github.io/sim-bwatta/`이며 Actions 재실행의 build·deploy가 모두 성공했다.
 - [x] PWABuilder에서 Windows Store 패키지 `1.0.1`을 생성하고 `.msixbundle`의 제품명·Package ID·Publisher ID·Publisher 표시명·한국어 리소스·공개 PWA URL을 검증한다.
-- [x] Apps in Toss판과 Microsoft Store/Web PWA판의 처리 차이를 구분한 개인정보 처리방침을 `https://le-corl.github.io/sim-bwatta/privacy.html`에 공개한다.
+- [x] Apps in Toss 플랫폼과 Microsoft Store/Web PWA 플랫폼의 처리 차이를 구분한 개인정보 처리방침을 `https://le-corl.github.io/sim-bwatta/privacy.html`에 공개한다.
 - [ ] Partner Center에 `.msixbundle`을 업로드하고 IARC 설문, 스토어 설명·이미지를 제출한다.
 
 PWABuilder 재검사에서 manifest와 service worker의 패키징 필수 조건을 모두 통과했다. 웹 화면의 패키지 버튼이 반응하지 않아 동일한 Microsoft 공식 PWABuilder 패키징 API로 생성했으며, Store 업로드 대상은 Git 제외 로컬 경로의 `심봤다_1.0.1.0.msixbundle`이다. 앱 SemVer `0.3.1`과 Windows Store 패키지 버전 `1.0.1.0`은 각 플랫폼 규칙에 따라 별도로 관리한다.
@@ -101,7 +101,7 @@ Google 경로는 실제 12명·14일 블로커가 확인되어 후순위로 내�
 - [ ] 앱 로고 600×600, 썸네일 1932×828, 노출용 스크린샷을 최종 확인한다.
 - [ ] 앱 검색 키워드와 게임 설명이 실제 기능만 설명하고 있는지 확인한다.
 - [ ] 2번에서 확보한 등급 정보·URL 또는 증명서·원본 플레이 화면을 등록한다.
-- [ ] 개인정보처리방침 입력란이 필수인지 콘솔에서 확인한다. 필수라면 현재 범위인 기기 로컬 기록, 게임 익명 식별키, Analytics 이벤트를 기준으로 문서를 작성한다.
+- [ ] 개인정보처리방침 입력란에 `https://le-corl.github.io/sim-bwatta/privacy.html`을 등록한다. 문서와 실제 Apps in Toss 플랫폼의 로컬 기록·익명 식별키·Analytics 이벤트가 일치하는지 최종 확인한다.
 - [ ] 주요 기능 진입점은 루트 스킴 `intoss://sim-bwatta`로 등록하고 설명은 `두루마리 휴지 풀기 및 휴지심 보관`으로 맞춘다.
 - [ ] 앱 정보 검토를 요청한다. 공식 예상 시간은 영업일 1~2일이다.
 
