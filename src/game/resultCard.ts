@@ -62,6 +62,82 @@ function fillCenteredLines(context: CanvasRenderingContext2D, lines: string[], c
   lines.forEach((line, index) => context.fillText(line, centerX, startY + index * lineHeight));
 }
 
+function drawResultCore(context: CanvasRenderingContext2D, entry: DiaryEntry) {
+  const centerX = CARD_WIDTH / 2;
+  const topY = 400;
+  const width = 400;
+  const height = 520;
+  const topRadiusY = 50;
+  const bottomRadiusY = 52;
+  const ellipseControl = 0.552_284_8;
+  const left = centerX - width / 2;
+  const right = centerX + width / 2;
+  const bottom = topY + height;
+  const borderColor = entry.isGolden ? '#ce9517' : '#8e5f3c';
+
+  context.save();
+
+  context.beginPath();
+  context.ellipse(centerX, bottom + 7, width * 0.46, 22, 0, 0, Math.PI * 2);
+  context.fillStyle = 'rgba(70, 48, 31, 0.13)';
+  context.fill();
+
+  const bodyGradient = context.createLinearGradient(left, 0, right, 0);
+  bodyGradient.addColorStop(0, entry.isGolden ? '#f3c74c' : '#c99568');
+  bodyGradient.addColorStop(0.52, entry.isGolden ? '#efbd36' : '#bd8657');
+  bodyGradient.addColorStop(1, entry.isGolden ? '#dba729' : '#a96f47');
+
+  context.beginPath();
+  context.moveTo(left, topY);
+  context.lineTo(right, topY);
+  context.lineTo(right, bottom - bottomRadiusY);
+  context.bezierCurveTo(
+    right,
+    bottom - bottomRadiusY + ellipseControl * bottomRadiusY,
+    centerX + ellipseControl * (width / 2),
+    bottom,
+    centerX,
+    bottom,
+  );
+  context.bezierCurveTo(
+    centerX - ellipseControl * (width / 2),
+    bottom,
+    left,
+    bottom - bottomRadiusY + ellipseControl * bottomRadiusY,
+    left,
+    bottom - bottomRadiusY,
+  );
+  context.closePath();
+  context.fillStyle = bodyGradient;
+  context.strokeStyle = borderColor;
+  context.lineWidth = 12;
+  context.fill();
+  context.stroke();
+
+  context.beginPath();
+  context.ellipse(centerX, topY, width / 2, topRadiusY, 0, 0, Math.PI * 2);
+  context.fillStyle = entry.isGolden ? '#e8b83f' : '#c39068';
+  context.fill();
+  context.stroke();
+
+  context.beginPath();
+  context.moveTo(left - 8, topY + 158);
+  context.bezierCurveTo(left + 76, topY + 310, right - 118, topY + 392, right + 8, topY + 342);
+  context.strokeStyle = entry.isGolden ? '#94650a' : '#865737';
+  context.lineWidth = 7;
+  context.lineCap = 'round';
+  context.stroke();
+
+  context.fillStyle = entry.isGolden ? '#5a3b05' : '#fff7ec';
+  context.font = '900 42px Pretendard, sans-serif';
+  const messageLines = wrapTextByWidth(entry.coreMessage, 305, (value) => context.measureText(value).width).slice(0, 3);
+  const messageCenterY = topY + 260;
+  const messageStartY = messageCenterY - ((messageLines.length - 1) * 56) / 2;
+  fillCenteredLines(context, messageLines, centerX, messageStartY, 56);
+
+  context.restore();
+}
+
 function formatCardDate(completedAt: string) {
   return new Intl.DateTimeFormat('ko-KR', {
     year: 'numeric',
@@ -105,54 +181,29 @@ export async function createResultCard(entry: DiaryEntry): Promise<GeneratedResu
   context.font = '700 30px Pretendard, sans-serif';
   context.fillText(formatCardDate(entry.completedAt), CARD_WIDTH / 2, 330);
 
-  const coreGradient = context.createLinearGradient(0, 0, 0, 310);
-  coreGradient.addColorStop(0, entry.isGolden ? '#f5cf62' : '#d29a6c');
-  coreGradient.addColorStop(1, entry.isGolden ? '#dca42a' : '#ad7248');
-  context.fillStyle = coreGradient;
-  context.strokeStyle = entry.isGolden ? '#bd8110' : '#8e5f3c';
-  context.lineWidth = 12;
-  roundedRect(context, 145, 448, 780, 300, 54);
-  context.fill();
-  context.stroke();
-
-  context.beginPath();
-  context.ellipse(920, 598, 72, 150, 0, 0, Math.PI * 2);
-  context.fillStyle = entry.isGolden ? '#d8a127' : '#a97047';
-  context.fill();
-  context.stroke();
-
-  context.beginPath();
-  context.ellipse(920, 598, 30, 91, 0, 0, Math.PI * 2);
-  context.fillStyle = entry.isGolden ? '#76510a' : '#5d3b27';
-  context.fill();
-
-  context.fillStyle = entry.isGolden ? '#543603' : '#fff7ec';
-  context.font = '900 52px Pretendard, sans-serif';
-  const messageLines = wrapTextByWidth(entry.coreMessage, 570, (value) => context.measureText(value).width).slice(0, 3);
-  const messageStartY = 585 - ((messageLines.length - 1) * 68) / 2;
-  fillCenteredLines(context, messageLines, 505, messageStartY, 68);
+  drawResultCore(context, entry);
 
   context.fillStyle = '#332b24';
   context.font = '900 50px Pretendard, sans-serif';
-  context.fillText(entry.isGolden ? '황금 휴지심 발견!' : '휴지심 발견!', CARD_WIDTH / 2, 855);
+  context.fillText(entry.isGolden ? '황금 휴지심 발견!' : '휴지심 발견!', CARD_WIDTH / 2, 1_010);
 
   context.fillStyle = '#796a5d';
   context.font = '700 30px Pretendard, sans-serif';
-  context.fillText(`${entry.missionCount}개 행동 미션 완료`, CARD_WIDTH / 2, 915);
+  context.fillText(`${entry.missionCount}개 행동 미션 완료`, CARD_WIDTH / 2, 1_060);
 
   context.fillStyle = '#f4eee5';
-  roundedRect(context, 150, 980, 780, 160, 36);
+  roundedRect(context, 150, 1_090, 780, 110, 32);
   context.fill();
 
   context.fillStyle = '#5f5146';
   context.font = '750 32px Pretendard, sans-serif';
   const missionLines = wrapTextByWidth(entry.missionTitles.join(' · '), 680, (value) => context.measureText(value).width).slice(0, 2);
-  const missionStartY = 1_054 - ((missionLines.length - 1) * 46) / 2;
-  fillCenteredLines(context, missionLines, CARD_WIDTH / 2, missionStartY, 46);
+  const missionStartY = 1_150 - ((missionLines.length - 1) * 42) / 2;
+  fillCenteredLines(context, missionLines, CARD_WIDTH / 2, missionStartY, 42);
 
   context.fillStyle = '#9a8878';
   context.font = '700 25px Pretendard, sans-serif';
-  context.fillText('휴지를 낭비하고, 작은 일을 해냈다.', CARD_WIDTH / 2, 1_215);
+  context.fillText('휴지를 낭비하고, 작은 일을 해냈다.', CARD_WIDTH / 2, 1_240);
 
   const dataUrl = canvas.toDataURL('image/png');
 
